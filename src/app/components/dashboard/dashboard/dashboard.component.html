@@ -1,0 +1,321 @@
+<!-- cp navi wrapper Start -->
+<app-navbar></app-navbar>
+
+<!-- inner header wrapper start -->
+<div class="page_title_section dashboard_title">
+
+  <div class="page_header">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-7">
+
+          <h1>Dashboard </h1>
+        </div>
+        <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-5">
+          <div class="sub_title_section">
+            <ul class="sub_title">
+              <li> <a routerLink="/dashboard"> Home </a>&nbsp; / &nbsp; </li>
+              <li>Dashboard</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- inner header wrapper end -->
+
+
+<app-sidebar></app-sidebar>
+
+
+
+<!-- Main section Start -->
+<div class="l-main">
+  <!--  Dashboard wrapper start -->
+  <div class="account_top_information">
+    <div class="account_overlay"></div>
+    <div class="useriimg"><img src="assets/images/user.png" alt="users"></div>
+    <div class="userdet uderid">
+      <u>
+        <h2><b style="color: white;">{{user?.username}}</b></h2>
+      </u>
+
+      <dl class="userdescc">
+        <dt>Email</dt>
+        <dd>: &nbsp; {{user?.email}}</dd>
+        <dt>First Name</dt>
+        <dd>: &nbsp; {{user?.firstName}}</dd>
+        <dt>Phone Number</dt>
+        <dd>: &nbsp; {{user?.telephone1}}</dd>
+        <dt>Last Name</dt>
+        <dd>: &nbsp;{{user?.lastName}} </dd>
+        <dt>Postal Address</dt>
+        <dd>: &nbsp; {{user?.postalAddress}}</dd>
+      </dl>
+    </div>
+
+    <!-- <div class="userdet user_transcation">
+      <h3>Available Balance</h3>
+      <dl class="userdescc">
+        <dt>Paypal</dt>
+        <dd>:&nbsp;&nbsp;Ksh 392.79</dd>
+        <dt>Pexpay</dt>
+        <dd>:&nbsp;&nbsp;Ksh 498.61</dd>
+        <dt>PerfectMoney</dt>
+        <dd>:&nbsp;&nbsp;Ksh 60.18</dd>
+        <dt>Payza</dt>
+        <dd>:&nbsp;&nbsp;Ksh 435</dd>
+        <dt>HDMoney</dt>
+        <dd>:&nbsp;&nbsp;Ksh 0.08</dd>
+
+      </dl>
+    </div> -->
+
+  </div>
+  <!--  Dashboard wrapper end -->
+
+  <!--  account wrapper start -->
+  <div class="account_wrapper float_left">
+
+    <div class="row">
+
+      <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+        <div class="sv_heading_wraper">
+
+          <h3>Dashboard</h3>
+
+        </div>
+      </div>
+      <div class="col-md-5 col-lg-5 col-xl-4 col-sm-6 col-12">
+        <div class="investment_box_wrapper color_1 float_left">
+          <a routerLink="/dashboard">
+            <div class="investment_icon_wrapper float_left">
+              <i class="far fa-money-bill-alt"></i>
+              <h1><b>EARNINGS</b></h1>
+            </div>
+
+            <div class="invest_details float_left">
+              <table class="invest_table">
+                <tbody>
+                  <tr>
+                    <td class="invest_td1"> Ksh <h1><b style="color: white;">{{account?.amount}}</b></h1>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-5 col-lg-5 col-xl-4 col-sm-6 col-12">
+        <div class="investment_box_wrapper color_2 float_left">
+          <a routerLink="/dashboard">
+            <div class="investment_icon_wrapper float_left">
+              <i class="far fa-money-bill-alt"></i>
+              <h1><b>WITHDRAWALS</b></h1>
+            </div>
+
+            <div class="invest_details float_left">
+              <table class="invest_table">
+                <tbody>
+                  <tr>
+                    <td class="invest_td1"> Ksh <h1><b style="color: white;">{{account?.cashedOut}}</b></h1>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-5 col-lg-5 col-xl-4 col-sm-6 col-12">
+        <div class="investment_box_wrapper color_3 float_left">
+          <a routerLink="/dashboard">
+            <div class="investment_icon_wrapper float_left">
+              <i class="far fa-money-bill-alt"></i>
+              <h1><b>INTEREST</b></h1>
+            </div>
+
+            <div class="invest_details float_left">
+              <table class="invest_table">
+                <tbody>
+                  <tr>
+                    <td class="invest_td1">
+                      <h1><b style="color: white;">100%</b></h1>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-5 col-lg-5 col-xl-4 col-sm-6 col-12">
+        <div class="investment_box_wrapper color_5 float_left">
+          <a routerLink="/dashboard">
+            <div class="investment_icon_wrapper float_left">
+              <i class="far fa-money-bill-alt"></i>
+              <h1><b>REFFERALS</b></h1>
+            </div>
+
+            <div class="invest_details float_left">
+              <table class="invest_table">
+                <tbody>
+                  <tr>
+                    <td class="invest_td1">
+                      <h1><b style="color: white;">
+                          {{user?.numberOfRefferals}}</b></h1>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- <div class="col-md-4 col-lg-4 col-xl-3 col-sm-6 col-12">
+        <div class="investment_box_wrapper color_6 float_left">
+          <a routerLink="/dashboard">
+            <div class="investment_icon_wrapper float_left">
+              <i class="far fa-money-bill-alt"></i>
+              <h1>sampal</h1>
+            </div>
+
+            <div class="invest_details float_left">
+              <table class="invest_table">
+                <tbody>
+                  <tr>
+                    <td class="invest_td1">interest today</td>
+                    <td class="invest_td1"> : 11 nos</td>
+                  </tr>
+                  <tr>
+                    <td class="invest_td1">interest this week</td>
+                    <td class="invest_td1">: nos</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </a>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <!--  account wrapper end -->
+  <!-- referrals wrapper start -->
+  <div class="view_profile_wrapper_top float_left">
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+        <div class="sv_heading_wraper">
+
+          <h3>REFERRAL HISTORY</h3>
+
+        </div>
+      </div>
+      <div class="col-xl-12 col-md-12 col-lg-12 col-sm-12 col-12">
+        <div class="view_profile_wrapper float_left">
+          <ul class="profile_list referal_list">
+            <li><span class="detail_left_part">Active Referrals
+              </span> <span class="detail_right_part">{{user?.numberOfRefferals}}
+              </span>
+            </li>
+            <li><span class="detail_left_part">Total Referral Deposited Amount</span> <span
+                class="detail_right_part">Ksh {{account?.amount}}
+              </span>
+            </li>
+            <li><span class="detail_left_part">Referral Link</span> <span class="detail_right_part">
+                  https://dk-denno.github.io/jadi-earn/refer/{{user?.uid}}
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- referrals wrapper end -->
+  <!--  transactions wrapper start -->
+  <div class="last_transaction_wrapper float_left">
+
+    <div class="row">
+
+      <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+        <div class="sv_heading_wraper">
+
+          <h3>LAST 5 TRANSACTIONS</h3>
+
+        </div>
+      </div>
+      <div class="crm_customer_table_main_wrapper float_left">
+
+        <div class="table-responsive">
+          <table class="myTable table datatables cs-table crm_customer_table_inner_Wrapper">
+            <thead>
+              <tr>
+                <th class="width_table1">transaction ID</th>
+                <th class="width_table1">amount (Ksh )</th>
+                <th class="width_table1">complete</th>
+                <th class="width_table1">payment mode</th>
+                <th class="width_table1">date</th>
+                <!-- <th class="width_table1">options</th> -->
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transaction of transactions" class="background_white">
+
+                <td>
+                  <div class="media cs-media">
+
+                    <div class="media-body">
+                      <h5>{{transaction.mpesaReceiptNumber}}</h5>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="pretty p-svg p-curve">{{transaction.amount}}</div>
+                </td>
+                <td>
+                  <div class="pretty p-svg p-curve">{{transaction.complete}}</div>
+                </td>
+                <td>
+                  <div class="pretty p-svg p-curve">M-PESA</div>
+                </td>
+
+                <td class="flag">
+                  <div class="pretty p-svg p-curve">{{transaction.transactionDate}}</div>
+                </td>
+                <td>
+                  <!-- <nav class="navbar navbar-expand"> -->
+                  <!-- <ul class="navbar-nav"> -->
+                  <!-- Dropdown -->
+                  <!-- <li class="nav-item dropdown"> -->
+                  <!-- <a class="nav-link dropdown-toggle" routerLink="/dashboard" data-toggle="dropdown"> -->
+                  <!-- <i class="fa fa-ellipsis-v"></i> -->
+                  <!-- </a> -->
+                  <!-- <div class="dropdown-menu"> <a class="dropdown-item" routerLink="/dashboard">Edit</a> -->
+                  <!-- <a class="dropdown-item" routerLink="/dashboard">Delete</a> -->
+                  <!-- </div> -->
+                  <!-- </li> -->
+                  <!-- </ul> -->
+                  <!-- </nav> -->
+                </td>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <ngx-loading [show]="loading"></ngx-loading>
+  <!--  transactions wrapper end -->
+  <!--  footer  wrapper start -->
+  <app-footer-dashboard></app-footer-dashboard>
+</div>
+<!--  footer  wrapper end -->

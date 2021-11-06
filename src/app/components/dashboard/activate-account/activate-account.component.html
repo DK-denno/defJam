@@ -1,0 +1,125 @@
+<app-navbar></app-navbar>
+ <!-- inner header wrapper start -->
+ <div class="page_title_section dashboard_title">
+
+  <div class="page_header">
+      <div class="container">
+          <div class="row">
+
+              <div class="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-7">
+
+                  <h1>Activate Account</h1>
+              </div>
+              <div class="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-5">
+                  <div class="sub_title_section">
+                      <ul class="sub_title">
+                          <li> <a href="#"> Home </a>&nbsp; / &nbsp; </li>
+                          <li> Activate Account</li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- inner header wrapper end -->
+<app-sidebar></app-sidebar>
+<div class="l-main">
+  <!--  my account wrapper start -->
+  <!-- <div class="account_top_information">
+      <div class="account_overlay"></div>
+
+
+
+  </div> -->
+  <!--  my account wrapper end -->
+  <!--  profile wrapper start -->
+  <div class="payment_transfer_Wrapper float_left" style="margin-top: 200px;">
+      <div class="row">
+          <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+              <div class="sv_heading_wraper heading_center">
+
+                  <h3>Activate Account</h3>
+
+              </div>
+
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-sm-12 col-12">
+            <div class="card" style="background-color: black;">
+
+                <div class="card_pagee" role="tab" id="headingeight">
+                    <h5 class="h5-md">
+                        <a class="collapsed" data-toggle="collapse" href="#collapse32" role="button"
+                            aria-expanded="false" aria-controls="collapse32">
+                            <div class="about_btn login_btn float_left">
+                                <a (click)="activateAccount()">Activate Account</a>
+                              </div>
+                        </a>
+                    </h5>
+                </div>
+
+                <div id="collapse32" class="collapse" role="tabpanel" aria-labelledby="headingeight"
+                    data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="card_img">
+                            <img src="assets/images/ac1.jpg" alt="img">
+                        </div>
+                        <div class="card_cntnt">
+                            <p>Morbi accumsan ipsum velit. Nam nec aks tel lus a odio tincidunt auctor. Proi
+                                gravida nibh vel velit auctor.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+              <!-- <div class="change_password_wrapper float_left">
+                  <div class="change_pass_field float_left">
+                      <div class="payment_gateway_wrapper payment_select_wrapper">
+                          <label>Select Payment Mode :</label>
+                          <select>
+                              <option selected>choose gateway</option>
+                              <option value="1">paypal</option>
+                              <option value="2">pexpay</option>
+                              <option value="3">perfectMoney</option>
+                              <option value="4">perfectMoney</option>
+                              <option value="5">payza</option>
+                              <option value="6">HDMoney</option>
+                              <option value="7">EGOpay</option>
+                              <option value="8">OKpay</option>
+                              <option value="9">solid trust pay</option>
+                              <option value="10">webmoney</option>
+                              <option value="11">bankwire</option>
+                              <option value="12">bitcoin</option>
+                          </select>
+                      </div>
+                      <div class="change_field">
+                          <label>available balance :</label>
+                          <input type="password" placeholder="000 KSH">
+                      </div>
+                      <div class="change_field">
+                          <label>transfer to username:</label>
+                          <input type="password" placeholder="enter username">
+                      </div>
+                      <div class="change_field">
+                          <label>amount :</label>
+                          <input type="password" placeholder="000 KSH">
+                      </div>
+                      <div class="about_btn float_left">
+                          <ul>
+                              <li>
+                                  <a href="#">transfer</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div> -->
+          </div>
+      </div>
+  </div>
+  <ngx-loading [show]="loading" ></ngx-loading>
+  <!--  profile wrapper end -->
+  <!--  footer  wrapper start -->
+  <app-footer-dashboard></app-footer-dashboard>
+</div>
