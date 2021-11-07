@@ -53,6 +53,7 @@ export class SidebarComponent implements OnInit {
           this.loading = false;
           this.service.showToastMessage(AppEnums.ToastTypeSuccess,
               "LOGGED IN", "Account Created succesffully");
+          this.router.navigate(["/dashboard"])
         } else {
           this.loading = false;
           this.service.showToastMessage(AppEnums.ToastTypeError,

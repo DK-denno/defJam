@@ -73,6 +73,7 @@ export class DashboardComponent implements OnInit {
           this.loading = false;
           this.service.showToastMessage(AppEnums.ToastTypeSuccess,
             "SUCCESS", "Appoinment Booked, ");
+          this.router.navigate(["/dashboard"])
       } else {
         this.loading = false;
         this.service.showToastMessage(AppEnums.ToastTypeError,
@@ -80,5 +81,9 @@ export class DashboardComponent implements OnInit {
       }
 
     });
+  }
+
+  getAppointMents() {
+
   }
 }

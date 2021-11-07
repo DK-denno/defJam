@@ -13,7 +13,7 @@ export const environment = {
   REFERRAL_REGISTRATION_URL : "https://jadi-earn.herokuapp.com/auth/clientSignUp/",
   REGISTRATION_URL : "http://localhost:8080/auth/clientSignUp",
   LOGIN_URL : "http://localhost:8080/auth/login",
-  SAVE_APPOINTMENT : "http://localhost:8080/auth/saveAppointment",
+  SAVE_APPOINTMENT : "http://localhost:8080/doctors/saveAppointment",
   SAVE_DOCTORS : "http://localhost:8080/doctors/saveDoctors",
 };
 
