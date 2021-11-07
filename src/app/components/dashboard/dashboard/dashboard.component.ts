@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AppEnums } from 'src/app/models/AppEnums';
+import { AppointmentOptions } from 'src/app/models/AppointmentOptions';
 import { IAccount } from 'src/app/models/IAccount';
 import { ITransaction } from 'src/app/models/ITransaction';
 import { IUser } from 'src/app/models/iuser';
@@ -16,7 +20,24 @@ export class DashboardComponent implements OnInit {
   account?: IAccount;
   loading:boolean = false;
   transactions? : ITransaction[];
-  constructor(private service: AppService) { }
+  appointmentForm!: FormGroup;
+
+  options: AppointmentOptions[]= [
+    { value: 'Consultation', viewValue: 'Consultation' },
+    { value: 'Optical', viewValue: 'Optical' },
+    { value: 'Dental', viewValue: 'Dental' },
+  ];
+
+  constructor(private router:Router, private service: AppService,
+    private formBuilder: FormBuilder) {
+      this.appointmentForm = formBuilder.group({
+        message: new FormControl("", Validators.required),
+        doctorName : new FormControl("", Validators.required),
+        day : new FormControl("", Validators.required),
+        month : new FormControl("", Validators.required),
+        year : new FormControl("", Validators.required),
+      });
+    }
 
   ngOnInit(): void {
     this.loading = true;
@@ -28,35 +49,34 @@ export class DashboardComponent implements OnInit {
     this.service.makePostRequest(`${environment.USER_DETAILS}`, {})
       .subscribe(data=>{
         if (data.status == 200) {
+          this.loading = false;
           this.user = data.payload;
         }
       })
-      this.getAccountDetails();
-  }
-
-  getAccountDetails() {
-    this.service.makePostRequest(`${environment.ACCOUNT_DETAILS}`, {})
-    .subscribe(data=>{
-      if (data.status == 200) {
-        this.account = data.payload;
-        console.log(data.payload.numberOfRefferals)
-      }
-    })
-    this.getTransactions()
   }
 
   getInterest() {
     return 100 * (this.account!.amount - 0.0);
   }
 
-  getTransactions() {
-    this.service.makePostRequest(`${environment.TRANSACTION_DETAILS}`, {})
-    .subscribe(data=>{
-      this.loading = false;
+
+  bookAppointment() {
+    this.loading = true;
+    this.service.makeLoginRequest(`${environment.SAVE_APPOINTMENT}`, {
+      doctorName: this.appointmentForm.get("doctorName")?.value,
+      message: this.appointmentForm.get("message")?.value,
+
+    }).subscribe(data=>{
       if (data.status == 200) {
+          this.loading = false;
+          this.service.showToastMessage(AppEnums.ToastTypeSuccess,
+            "SUCCESS", "Appoinment Booked, ");
+      } else {
         this.loading = false;
-        this.transactions = data.payload.transactions;
+        this.service.showToastMessage(AppEnums.ToastTypeError,
+          "FAILED", data.payload.message);
       }
-    })
+
+    });
   }
 }

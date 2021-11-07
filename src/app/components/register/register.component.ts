@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
           this.authuser = data.payload;
           this.appService.setAuthUser(this.authuser!);
           this.appService.setSessionUser(this.authuser!)
-          this.router.navigate(["/activate-account"])
+          this.router.navigate(["/dashboard"])
         } else {
           this.loading = false;
           this.appService.showToastMessage(AppEnums.ToastTypeError,
