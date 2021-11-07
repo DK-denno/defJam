@@ -14,6 +14,7 @@ export const environment = {
   REGISTRATION_URL : "http://localhost:8080/auth/clientSignUp",
   LOGIN_URL : "http://localhost:8080/auth/login",
   SAVE_APPOINTMENT : "http://localhost:8080/auth/saveAppointment",
+  SAVE_DOCTORS : "http://localhost:8080/doctors/saveDoctors",
 };
 
 /*
@@ -24,3 +25,4 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+

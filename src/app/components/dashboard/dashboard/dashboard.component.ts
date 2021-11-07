@@ -65,7 +65,9 @@ export class DashboardComponent implements OnInit {
     this.service.makeLoginRequest(`${environment.SAVE_APPOINTMENT}`, {
       doctorName: this.appointmentForm.get("doctorName")?.value,
       message: this.appointmentForm.get("message")?.value,
-
+      day: this.appointmentForm.get("day")?.value,
+      month: this.appointmentForm.get("month")?.value,
+      year: this.appointmentForm.get("year")?.value,
     }).subscribe(data=>{
       if (data.status == 200) {
           this.loading = false;
