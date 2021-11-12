@@ -15,6 +15,9 @@ export const environment = {
   LOGIN_URL : "http://localhost:8080/auth/login",
   SAVE_APPOINTMENT : "http://localhost:8080/doctors/saveAppointment",
   SAVE_DOCTORS : "http://localhost:8080/doctors/saveDoctors",
+  GET_APPOINTMENTS : "http://localhost:8080/doctors/getAppointments",
+  CHECKOUT : "http://localhost:8080/checkout/pay",
+  CREATE_PATIENT_RECORD : "http://localhost:8080/doctors/createPatientRecord",
 };
 
 /*

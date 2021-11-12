@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 export class SidebarComponent implements OnInit {
 
   createDotorsForm!: FormGroup;
+  initiatePaymentForm!: FormGroup;
   loading: boolean = false;
   constructor(private router:Router, private service: AppService,
     private formBuilder: FormBuilder) {
@@ -31,6 +32,12 @@ export class SidebarComponent implements OnInit {
         telephone1: new FormControl("", Validators.requiredTrue),
         addr: new FormControl("", Validators.requiredTrue),
       })
+
+      this.initiatePaymentForm = formBuilder.group({
+        phoneNumber: new FormControl("", Validators.required),
+        amount: new FormControl("", Validators.required),
+        accountNumber: new FormControl("", Validators.required),
+      });
     }
 
   ngOnInit(): void {
@@ -52,14 +59,34 @@ export class SidebarComponent implements OnInit {
         if (data.status == 200) {
           this.loading = false;
           this.service.showToastMessage(AppEnums.ToastTypeSuccess,
-              "LOGGED IN", "Account Created succesffully");
+              "SUCCESS", "Doctor added successully");
           this.router.navigate(["/dashboard"])
         } else {
           this.loading = false;
           this.service.showToastMessage(AppEnums.ToastTypeError,
-              "LOGGING IN", data.payload);
+              "FAILED!", data.payload);
         }
       })
     }
+  }
+
+  initiatePayments() {
+    this.loading = true;
+    this.service.makeCreateUserRequest(`${environment.CHECKOUT}`, {
+      phoneNumber:this.initiatePaymentForm.get("phoneNumber")?.value,
+      amount: Number(this.initiatePaymentForm.get("amount")?.value),
+      accountNumber:this.initiatePaymentForm.get("accountNumber")?.value,
+    }).subscribe(data=>{
+      console.log("data -----> " + data.payload)
+      if (data.status == 200) {
+        this.loading = false;
+        this.service.showToastMessage(AppEnums.ToastTypeSuccess,
+            "SUCCESS", "Payment Initiated Check for STK push");
+      } else {
+        this.loading = false;
+        this.service.showToastMessage(AppEnums.ToastTypeError,
+            "FAILED", data.payload);
+      }
+    })
   }
 }

@@ -77,13 +77,6 @@
   <!--  Dashboard wrapper end -->
   <div class="row">
     <div class="col-lg-12 col-md-12">
-      <div class="about_btn calc_btn faqq_btn float_left">
-          <ul>
-              <li>
-                  <a href="#" data-toggle="modal" data-target="#myModal"> BOOK APPOINTMENT</a>
-              </li>
-          </ul>
-      </div>
       <div class="modal fade question_modal" id="myModal" role="dialog">
           <div class="modal-dialog">
               <div class="modal-content">
@@ -92,61 +85,58 @@
                       <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                           <div class="sv_question_pop float_left">
                               <h1>Book an Appointment </h1>
-                             <div class="col-md-2"></div>
-                             <div class="col-md-8">
-                              <form [formGroup]="appointmentForm" autocomplete="off">
-                                <div class="form-group icon_form comments_form">
-                                  <input type="email" class="form-control require" matInput
-                                    formControlName="doctorName" placeholder="Your Doctor's name* ">
-                                </div>
+                              <div class="container">
+                                <form [formGroup]="appointmentForm" autocomplete="off">
+                                    <div class="form-group icon_form comments_form">
+                                      <input type="email" class="form-control require" matInput
+                                        formControlName="doctorName" placeholder="Your Doctor's name* ">
+                                    </div>
 
-                               <mat-form-field>
-                                <div class="apply_job_form">
-                                  <textarea class="form-control"  matInput
-                                  formControlName="message"
-                                      placeholder="Message"></textarea>
-                                </div>
-                              </mat-form-field>
-                              <br>
-                              <div class="row">
-                                <mat-form-field>
-                                  <div class="apply_job_form">
-                                    <input type="number" class="form-control require" matInput
-                                    formControlName="day" placeholder="Day* ">
-                                  </div>
-                                </mat-form-field>
-                                <br>
-                                <mat-form-field>
-                                  <div class="apply_job_form">
-                                    <input type="number" class="form-control require" matInput
-                                    formControlName="month" placeholder="Month* ">
-                                  </div>
-                                </mat-form-field>
-                                <br>
-                                <mat-form-field>
-                                  <div class="apply_job_form">
-                                    <input type="number" class="require" matInput
-                                      formControlName="year" placeholder="Year* ">
-                                  </div>
-                                </mat-form-field>
-                                <br>
+                                   <mat-form-field>
+                                    <div class="apply_job_form">
+                                      <textarea class="form-group icon_form comments_form"  matInput
+                                      formControlName="message"
+                                          placeholder="Message"></textarea>
+                                    </div>
+                                  </mat-form-field>
+                                  <br>
+                                    <mat-form-field>
+                                      <div class="apply_job_form">
+                                        <input type="number" class="form-group icon_form comments_form" matInput
+                                        formControlName="day" placeholder="Day* ">
+                                      </div>
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field>
+                                      <div class="apply_job_form">
+                                        <input type="number" class="form-group icon_form comments_form" matInput
+                                        formControlName="month" placeholder="Month* ">
+                                      </div>
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field>
+                                      <div class="apply_job_form">
+                                        <input type="number" class="form-group icon_form comments_form" matInput
+                                          formControlName="year" placeholder="Year* ">
+                                      </div>
+                                    </mat-form-field>
+                                    <br>
+                                  <mat-form-field>
+                                    <mat-label>Appointment Options</mat-label> <br>
+                                    <select class="form-group icon_form comments_form" matNativeControl required>
+                                      <option *ngFor="let opt of options" [value]="opt.value">
+                                        {{ opt.viewValue }}
+                                      </option>
+                                    </select>
+                                  </mat-form-field>
+
+                                  <br><br>
+                                    <div class="dont_have_account float_left">
+                                      <!-- <p>Don’t have an acount ? <a routerLink="/register">Sign up</a></p> -->
+                                    </div>
+                                  </form>
                               </div>
-                              <mat-form-field>
-                                <mat-label>Appointment Options</mat-label> <br>
-                                <select matNativeControl required>
-                                  <option *ngFor="let opt of options" [value]="opt.value">
-                                    {{ opt.viewValue }}
-                                  </option>
-                                </select>
-                              </mat-form-field>
 
-                              <br><br>
-                                <div class="dont_have_account float_left">
-                                  <!-- <p>Don’t have an acount ? <a routerLink="/register">Sign up</a></p> -->
-                                </div>
-                              </form>
-                             </div>
-                             <div class="col-md-2"></div>
                               <!-- <div class="search_alert_box float_left">
 
                                   <div class="apply_job_form">
@@ -183,542 +173,6 @@
       </div>
   </div>
   </div>
-  <!--  account wrapper start -->
-  <div class="account_wrapper float_left">
-
-    <div class="row">
-
-      <div class="col-md-12 col-lg-12 col-sm-12 col-12">
-        <div class="sv_heading_wraper">
-
-          <h3>Appointments</h3>
-
-        </div>
-      </div>
-      <div class="last_transaction_wrapper float_left">
-
-        <div class="row">
-
-            <div class="crm_customer_table_main_wrapper float_left">
-                <div class="crm_ct_search_wrapper">
-                    <div class="crm_ct_search_bottom_cont_Wrapper">
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="myTable table datatables cs-table crm_customer_table_inner_Wrapper">
-                        <thead>
-                            <tr>
-                                <th class="width_table1">level</th>
-                                <th class="width_table1">username</th>
-                                <th class="width_table1">first name</th>
-                                <th class="width_table1">E-mail</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 1</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ajaysuray</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ajay</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">alemujona@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 2</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">akshay </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">akshay handge</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">akshay@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 3</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">farhan shaikh</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">farhan</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">faruua@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 4</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">nachi</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">mishara</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">midhrjona@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 6</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">subhi</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">kumawat</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">surbhiujona@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 8</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">shruti</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">shruti jaiwal</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">shrutiujona@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 10</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">mini</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">min22</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">mini@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 9</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">sunita amliyar</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">sunita</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">sunitaa@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 12</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">soan</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">mishti</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">sona@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 14</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">nick jones</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">nick</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">nick@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 17</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">priyu</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">menthaan</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">priyu@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 23</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">gggrtghfgn</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">rfgf</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">gffgf@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 32</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">djktrrgn</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">yyyrre</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">gfgf@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 24</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">aamp</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">amprt</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ammf@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 23</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravidlin01</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravi</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravi01@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 11</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">maneku94584</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">maneku</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">maneku1@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 26</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ajay04</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ajay</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ajay041@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 24</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">aamp</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">amprt</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ammf@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 23</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravidlin01</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravi</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravi01@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 44</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">tytytry555b</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">dfrg</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">gfftr@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 23</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravidlin01</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravi</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravi01@gmail.com</div>
-                                </td>
-
-                            </tr>
-                            <tr class="background_white">
-
-                                <td>
-                                    <div class="media cs-media">
-
-                                        <div class="media-body">
-                                            <h5>level 23</h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravidlin01</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravi</div>
-                                </td>
-                                <td>
-                                    <div class="pretty p-svg p-curve">ravi01@gmail.com</div>
-                                </td>
-
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--  account wrapper end -->
-  <!-- referrals wrapper start -->
-  <div class="view_profile_wrapper_top float_left">
-
-    <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12 col-12">
-        <div class="sv_heading_wraper">
-
-          <h3>REFERRAL HISTORY</h3>
-
-        </div>
-      </div>
-      <div class="col-xl-12 col-md-12 col-lg-12 col-sm-12 col-12">
-        <div class="view_profile_wrapper float_left">
-          <ul class="profile_list referal_list">
-            <li><span class="detail_left_part">Active Referrals
-              </span> <span class="detail_right_part">{{user?.numberOfRefferals}}
-              </span>
-            </li>
-            <li><span class="detail_left_part">Total Referral Deposited Amount</span> <span
-                class="detail_right_part">Ksh {{account?.amount}}
-              </span>
-            </li>
-            <li><span class="detail_left_part">Referral Link</span> <span class="detail_right_part">
-                  https://dk-denno.github.io/jadi-earn/refer/{{user?.uid}}
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- referrals wrapper end -->
   <!--  transactions wrapper start -->
@@ -729,7 +183,7 @@
       <div class="col-md-12 col-lg-12 col-sm-12 col-12">
         <div class="sv_heading_wraper">
 
-          <h3>LAST 5 TRANSACTIONS</h3>
+          <h3>APPOINTMENTS</h3>
 
         </div>
       </div>
@@ -739,39 +193,58 @@
           <table class="myTable table datatables cs-table crm_customer_table_inner_Wrapper">
             <thead>
               <tr>
-                <th class="width_table1">transaction ID</th>
-                <th class="width_table1">amount (Ksh )</th>
-                <th class="width_table1">complete</th>
-                <th class="width_table1">payment mode</th>
-                <th class="width_table1">date</th>
+                <th class="width_table1">Day</th>
+                <th class="width_table1">Month</th>
+                <th class="width_table1">Year</th>
+                <th class="width_table1">Patient Name</th>
+                <th class="width_table1">Doctor name</th>
+
+                <th class="width_table1">Actions</th>
                 <!-- <th class="width_table1">options</th> -->
 
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let transaction of transactions" class="background_white">
+              <tr *ngFor="let transaction of appointments" class="background_white">
 
                 <td>
                   <div class="media cs-media">
 
                     <div class="media-body">
-                      <h5>{{transaction.mpesaReceiptNumber}}</h5>
+                      <h5>{{transaction.day}}</h5>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <div class="pretty p-svg p-curve">{{transaction.amount}}</div>
+                  <div class="pretty p-svg p-curve">{{transaction.month}}</div>
                 </td>
                 <td>
-                  <div class="pretty p-svg p-curve">{{transaction.complete}}</div>
+                  <div class="pretty p-svg p-curve">{{transaction.year}}</div>
                 </td>
                 <td>
-                  <div class="pretty p-svg p-curve">M-PESA</div>
+                  <div class="pretty p-svg p-curve">{{transaction.patient.username}}</div>
+                </td>
+                <td class="flag">
+                  <div class="pretty p-svg p-curve">{{transaction.doctor.username}}</div>
                 </td>
 
                 <td class="flag">
-                  <div class="pretty p-svg p-curve">{{transaction.transactionDate}}</div>
+                  <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">
+                      <a href="#" data-toggle="modal" data-target="#createPatienRecord">
+                      <i class="fas fa-arrow-circle-right"></i>
+                      </a>
+                    </div>
+                    <div class="col-md-4">
+                      <a href="#" data-toggle="modal" data-target="#createPatienRecord">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </div>
+                    <div class="col-md-2"></div>
+                  </div>
                 </td>
+
                 <td>
                   <!-- <nav class="navbar navbar-expand"> -->
                   <!-- <ul class="navbar-nav"> -->
@@ -795,6 +268,108 @@
       </div>
     </div>
   </div>
+
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="modal fade question_modal" id="createPatienRecord" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                          <div class="sv_question_pop float_left">
+                              <h1>Book an Appointment </h1>
+                              <div class="container">
+                                <form [formGroup]="appointmentForm" autocomplete="off">
+                                    <div class="form-group icon_form comments_form">
+                                      <input type="email" class="form-control require" matInput
+                                        formControlName="doctorName" placeholder="Your Doctor's name* ">
+                                    </div>
+
+                                   <mat-form-field>
+                                    <div class="apply_job_form">
+                                      <textarea class="form-group icon_form comments_form"  matInput
+                                      formControlName="message"
+                                          placeholder="Message"></textarea>
+                                    </div>
+                                  </mat-form-field>
+                                  <br>
+                                    <mat-form-field>
+                                      <div class="apply_job_form">
+                                        <input type="number" class="form-group icon_form comments_form" matInput
+                                        formControlName="day" placeholder="Day* ">
+                                      </div>
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field>
+                                      <div class="apply_job_form">
+                                        <input type="number" class="form-group icon_form comments_form" matInput
+                                        formControlName="month" placeholder="Month* ">
+                                      </div>
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field>
+                                      <div class="apply_job_form">
+                                        <input type="number" class="form-group icon_form comments_form" matInput
+                                          formControlName="year" placeholder="Year* ">
+                                      </div>
+                                    </mat-form-field>
+                                    <br>
+                                  <mat-form-field>
+                                    <mat-label>Appointment Options</mat-label> <br>
+                                    <select class="form-group icon_form comments_form" matNativeControl required>
+                                      <option *ngFor="let opt of options" [value]="opt.value">
+                                        {{ opt.viewValue }}
+                                      </option>
+                                    </select>
+                                  </mat-form-field>
+
+                                  <br><br>
+                                    <div class="dont_have_account float_left">
+                                      <!-- <p>Don’t have an acount ? <a routerLink="/register">Sign up</a></p> -->
+                                    </div>
+                                  </form>
+                              </div>
+
+                              <!-- <div class="search_alert_box float_left">
+
+                                  <div class="apply_job_form">
+
+                                      <input type="text" name="full_name" placeholder="full name">
+                                  </div>
+                                  <div class="apply_job_form">
+
+                                      <input type="text" name="Email" placeholder="Enter Your Email">
+                                  </div>
+
+                                  <div class="apply_job_form">
+                                      <textarea class="form-control" name="message"
+                                          placeholder="Message"></textarea>
+                                  </div>
+                              </div> -->
+                              <div class="question_sec float_left">
+                                  <div class="about_btn calc_btn faqq_btn ques_Btn">
+                                      <ul>
+                                          <li>
+                                              <a (click)="bookAppointment()" >apply now</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <div class="cancel_wrapper">
+                                      <a href="#" class="" data-dismiss="modal">cancel</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
   <ngx-loading [show]="loading"></ngx-loading>
   <!--  transactions wrapper end -->
   <!--  footer  wrapper start -->

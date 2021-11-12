@@ -12,8 +12,16 @@
             <div class="c-menu-item__title">Dashboard</div>
           </a>
         </li>
-        <li class="c-menu__item crm_navi_icon_cont">
+        <li class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
           <a href="#" data-toggle="modal" data-target="#createDoctor"> Create Doctor</a>
+        </li>
+        <br>
+        <li class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
+          <a href="#" data-toggle="modal" data-target="#myModal"> Book Appointment </a>
+        </li>
+        <br>
+        <li class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
+          <a href="#" data-toggle="modal" data-target="#initiatePayment"> Initiate payment </a>
         </li>
       </ul>
     </nav>
@@ -62,10 +70,6 @@
                         <mat-form-field class="form-group icon_form comments_form register_contact">
                           <input type="number" class="form-control require" matInput formControlName="addr" placeholder="Postal Address***">
                         </mat-form-field>
-
-                        <div class="about_btn login_btn float_left">
-                          <a (click)="submitRegistrationData()">Save Doctor</a>
-                        </div>
                       </form>
                       <!-- <div class="search_alert_box float_left">
 
@@ -87,7 +91,7 @@
                           <div class="about_btn calc_btn faqq_btn ques_Btn">
                               <ul>
                                   <li>
-                                      <a  >apply now</a>
+                                      <a (click)="submitRegistrationData()">apply now</a>
                                   </li>
                               </ul>
                           </div>
@@ -101,3 +105,51 @@
       </div>
   </div>
 </div>
+
+
+<div class="modal fade question_modal" id="initiatePayment" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="sv_question_pop float_left">
+                      <h1>Initiate Payments </h1>
+                      <form [formGroup]="initiatePaymentForm" autocomplete="off">
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="text" class="form-control require"
+                            matInput formControlName="phoneNumber" placeholder="Phone Number*">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="text" class="form-control require"
+                            matInput formControlName="amount" placeholder="Amount*">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="text" class="form-control require"
+                            matInput formControlName="accountNumber" placeholder="Account Number*">
+                        </mat-form-field>
+                      </form>
+
+                      <div class="question_sec float_left">
+                          <div class="about_btn calc_btn faqq_btn ques_Btn">
+                              <ul>
+                                  <li>
+                                      <a (click)="initiatePayments()">Initiate</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="cancel_wrapper">
+                              <a href="#" class="" data-dismiss="modal">cancel</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<ngx-loading [show]="loading"></ngx-loading>
