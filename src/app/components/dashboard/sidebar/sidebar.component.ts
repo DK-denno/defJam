@@ -14,6 +14,7 @@ export class SidebarComponent implements OnInit {
 
   createDotorsForm!: FormGroup;
   initiatePaymentForm!: FormGroup;
+  reviewForm!: FormGroup;
   loading: boolean = false;
   constructor(private router:Router, private service: AppService,
     private formBuilder: FormBuilder) {
@@ -37,6 +38,10 @@ export class SidebarComponent implements OnInit {
         phoneNumber: new FormControl("", Validators.required),
         amount: new FormControl("", Validators.required),
         accountNumber: new FormControl("", Validators.required),
+      });
+
+      this.reviewForm = formBuilder.group({
+        message: new FormControl("", Validators.required)
       });
     }
 
@@ -82,6 +87,24 @@ export class SidebarComponent implements OnInit {
         this.loading = false;
         this.service.showToastMessage(AppEnums.ToastTypeSuccess,
             "SUCCESS", "Payment Initiated Check for STK push");
+      } else {
+        this.loading = false;
+        this.service.showToastMessage(AppEnums.ToastTypeError,
+            "FAILED", data.payload);
+      }
+    })
+  }
+
+  addReviews() {
+    this.loading = true;
+    this.service.makePostRequest(`${environment.ADD_REVIEW}`, {
+      message: this.reviewForm.get("message")?.value,
+    }).subscribe(data=>{
+      console.log("data -----> " + data.payload)
+      if (data.status == 200) {
+        this.loading = false;
+        this.service.showToastMessage(AppEnums.ToastTypeSuccess,
+            "SUCCESS", "Review Made");
       } else {
         this.loading = false;
         this.service.showToastMessage(AppEnums.ToastTypeError,

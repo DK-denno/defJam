@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AppEnums } from 'src/app/models/AppEnums';
 import { AppointmentOptions } from 'src/app/models/AppointmentOptions';
 import { IAppointments } from 'src/app/models/IAppointments';
+import { IReviews } from 'src/app/models/IReviews';
 import { ITransaction } from 'src/app/models/ITransaction';
 import { IUser } from 'src/app/models/iuser';
 import { AppService } from 'src/app/service/app-service.service';
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit {
   appointmentForm!: FormGroup;
   initiatePaymentForm!: FormGroup;
   creatPatientRecordForm!: FormGroup;
+  reviews!: IReviews [];
 
   options: AppointmentOptions[]= [
     { value: 'Consultation', viewValue: 'Consultation' },
@@ -99,6 +101,7 @@ export class DashboardComponent implements OnInit {
           "FAILED", data.payload.message);
       }
     });
+    this.getReviews();
   }
 
   createPatientRecord(appointMentID:number) {
@@ -106,6 +109,49 @@ export class DashboardComponent implements OnInit {
     this.service.makePostRequest(`${environment.CREATE_PATIENT_RECORD}`, {
       appointmentId: appointMentID,
       message: this.creatPatientRecordForm.get("message")?.value,
-    })
+    }).subscribe(data=>{
+      if (data.status == 200) {
+          this.loading = false;
+          this.service.showToastMessage(AppEnums.ToastTypeSuccess,
+            "SUCCESS", "Patient record added");
+      } else {
+        this.loading = false;
+        this.service.showToastMessage(AppEnums.ToastTypeError,
+          "FAILED", data.payload.message);
+      }
+    });
+  }
+
+  getPatientRecord(appointMentID:number) {
+    this.loading = true;
+    console.log(appointMentID)
+    this.service.makePostRequest(`${environment.CREATE_PATIENT_RECORD}`, {
+      appointmentId: appointMentID,
+    }).subscribe(data=>{
+      if (data.status == 200) {
+          this.loading = false;
+          this.service.showToastMessage(AppEnums.ToastTypeSuccess,
+            "SUCCESS", "Patient record added");
+      } else {
+        this.loading = false;
+        this.service.showToastMessage(AppEnums.ToastTypeError,
+          "FAILED", data.payload.message);
+      }
+    });
+  }
+
+  getReviews() {
+    this.loading = true;
+    this.service.makePostRequest(`${environment.GET_REVIEW}`, {
+    }).subscribe(data=>{
+      if (data.status == 200) {
+          this.loading = false
+          this.reviews = data.payload.reviews;
+      } else {
+        this.loading = false;
+        this.service.showToastMessage(AppEnums.ToastTypeError,
+          "FAILED", data.payload.message);
+      }
+    });
   }
 }

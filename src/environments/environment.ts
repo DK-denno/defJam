@@ -7,10 +7,10 @@ export const environment = {
   // REGISTRATION_URL : "https://jadi-earn.herokuapp.com/auth/clientSelfSignUp",
   // LOGIN_URL : "https://jadi-earn.herokuapp.com/auth/clientLogin",
   USER_DETAILS : "http://localhost:8080/auth/getUserDetails",
-  ACTIVATE_ACCOUNT : "https://jadi-earn.herokuapp.com/auth/activateAccount",
-  ACCOUNT_DETAILS: "https://jadi-earn.herokuapp.com/auth/getAccountDetails",
-  TRANSACTION_DETAILS: "https://jadi-earn.herokuapp.com/auth/getTransactions",
-  REFERRAL_REGISTRATION_URL : "https://jadi-earn.herokuapp.com/auth/clientSignUp/",
+  ACTIVATE_ACCOUNT : "",
+  ACCOUNT_DETAILS: "",
+  TRANSACTION_DETAILS: "",
+  REFERRAL_REGISTRATION_URL : "",
   REGISTRATION_URL : "http://localhost:8080/auth/clientSignUp",
   LOGIN_URL : "http://localhost:8080/auth/login",
   SAVE_APPOINTMENT : "http://localhost:8080/doctors/saveAppointment",
@@ -18,6 +18,9 @@ export const environment = {
   GET_APPOINTMENTS : "http://localhost:8080/doctors/getAppointments",
   CHECKOUT : "http://localhost:8080/checkout/pay",
   CREATE_PATIENT_RECORD : "http://localhost:8080/doctors/createPatientRecord",
+  GET_PATIENT_RECORD : "http://localhost:8080/doctors/getPatientRecord",
+  ADD_REVIEW : "http://localhost:8080/doctors/addReviews",
+  GET_REVIEW : "http://localhost:8080/doctors/getReviews",
 };
 
 /*

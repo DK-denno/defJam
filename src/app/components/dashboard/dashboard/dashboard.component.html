@@ -260,6 +260,55 @@
                   <!-- </ul> -->
                   <!-- </nav> -->
                 </td>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12">
+                    <div class="modal fade question_modal" id="createPatienRecord" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="sv_question_pop float_left">
+                                            <h1>New Patient Record </h1>
+                                            <div class="container">
+                                              <form [formGroup]="creatPatientRecordForm" autocomplete="off">
+
+                                                 <mat-form-field>
+                                                  <div class="apply_job_form">
+                                                    <textarea class="form-group icon_form comments_form"  matInput
+                                                    formControlName="message"
+                                                        placeholder="Message"></textarea>
+                                                  </div>
+                                                </mat-form-field>
+
+                                                <br><br>
+                                                  <div class="dont_have_account float_left">
+                                                    <!-- <p>Don’t have an acount ? <a routerLink="/register">Sign up</a></p> -->
+                                                  </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="question_sec float_left">
+                                                <div class="about_btn calc_btn faqq_btn ques_Btn">
+                                                    <ul>
+                                                        <li>
+                                                            <a (click)="createPatientRecord(transaction.id)" >apply now</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="cancel_wrapper">
+                                                    <a href="#" class="" data-dismiss="modal">cancel</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </tr>
 
             </tbody>
           </table>
@@ -270,104 +319,53 @@
   </div>
 
 
-  <div class="row">
-    <div class="col-lg-12 col-md-12">
-      <div class="modal fade question_modal" id="createPatienRecord" role="dialog">
-          <div class="modal-dialog">
-              <div class="modal-content">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <div class="row">
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                          <div class="sv_question_pop float_left">
-                              <h1>Book an Appointment </h1>
-                              <div class="container">
-                                <form [formGroup]="appointmentForm" autocomplete="off">
-                                    <div class="form-group icon_form comments_form">
-                                      <input type="email" class="form-control require" matInput
-                                        formControlName="doctorName" placeholder="Your Doctor's name* ">
-                                    </div>
 
-                                   <mat-form-field>
-                                    <div class="apply_job_form">
-                                      <textarea class="form-group icon_form comments_form"  matInput
-                                      formControlName="message"
-                                          placeholder="Message"></textarea>
-                                    </div>
-                                  </mat-form-field>
-                                  <br>
-                                    <mat-form-field>
-                                      <div class="apply_job_form">
-                                        <input type="number" class="form-group icon_form comments_form" matInput
-                                        formControlName="day" placeholder="Day* ">
-                                      </div>
-                                    </mat-form-field>
-                                    <br>
-                                    <mat-form-field>
-                                      <div class="apply_job_form">
-                                        <input type="number" class="form-group icon_form comments_form" matInput
-                                        formControlName="month" placeholder="Month* ">
-                                      </div>
-                                    </mat-form-field>
-                                    <br>
-                                    <mat-form-field>
-                                      <div class="apply_job_form">
-                                        <input type="number" class="form-group icon_form comments_form" matInput
-                                          formControlName="year" placeholder="Year* ">
-                                      </div>
-                                    </mat-form-field>
-                                    <br>
-                                  <mat-form-field>
-                                    <mat-label>Appointment Options</mat-label> <br>
-                                    <select class="form-group icon_form comments_form" matNativeControl required>
-                                      <option *ngFor="let opt of options" [value]="opt.value">
-                                        {{ opt.viewValue }}
-                                      </option>
-                                    </select>
-                                  </mat-form-field>
 
-                                  <br><br>
-                                    <div class="dont_have_account float_left">
-                                      <!-- <p>Don’t have an acount ? <a routerLink="/register">Sign up</a></p> -->
-                                    </div>
-                                  </form>
-                              </div>
+  <!-- referrals wrapper end -->
+  <!--  transactions wrapper start -->
+  <div class="last_transaction_wrapper float_left">
 
-                              <!-- <div class="search_alert_box float_left">
+    <div class="row">
 
-                                  <div class="apply_job_form">
+      <div class="col-md-12 col-lg-12 col-sm-12 col-12">
+        <div class="sv_heading_wraper">
 
-                                      <input type="text" name="full_name" placeholder="full name">
-                                  </div>
-                                  <div class="apply_job_form">
+          <h3>REVIEWS</h3>
 
-                                      <input type="text" name="Email" placeholder="Enter Your Email">
-                                  </div>
-
-                                  <div class="apply_job_form">
-                                      <textarea class="form-control" name="message"
-                                          placeholder="Message"></textarea>
-                                  </div>
-                              </div> -->
-                              <div class="question_sec float_left">
-                                  <div class="about_btn calc_btn faqq_btn ques_Btn">
-                                      <ul>
-                                          <li>
-                                              <a (click)="bookAppointment()" >apply now</a>
-                                          </li>
-                                      </ul>
-                                  </div>
-                                  <div class="cancel_wrapper">
-                                      <a href="#" class="" data-dismiss="modal">cancel</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
+      <div class="crm_customer_table_main_wrapper float_left">
+
+        <div class="table-responsive">
+          <table class="myTable table datatables cs-table crm_customer_table_inner_Wrapper">
+            <thead>
+              <tr>
+                <th class="width_table1">username</th>
+                <th class="width_table1">message</th>
+                <!-- <th class="width_table1">options</th> -->
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transaction of reviews" class="background_white">
+
+                <td>
+                  <div class="pretty p-svg p-curve">{{transaction.client.username}}</div>
+                </td>
+                <td>
+                  <div class="pretty p-svg p-curve">{{transaction.message}}</div>
+                </td>
+                </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
+
+
 
 
   <ngx-loading [show]="loading"></ngx-loading>
