@@ -51,8 +51,8 @@
         <dd>: &nbsp; {{user?.telephone1}}</dd>
         <dt>Last Name</dt>
         <dd>: &nbsp;{{user?.lastName}} </dd>
-        <dt>Postal Address</dt>
-        <dd>: &nbsp; {{user?.postalAddress}}</dd>
+        <dt>Role</dt>
+        <dd>: &nbsp; {{user?.role}}</dd>
       </dl>
     </div>
 
@@ -137,22 +137,6 @@
                                   </form>
                               </div>
 
-                              <!-- <div class="search_alert_box float_left">
-
-                                  <div class="apply_job_form">
-
-                                      <input type="text" name="full_name" placeholder="full name">
-                                  </div>
-                                  <div class="apply_job_form">
-
-                                      <input type="text" name="Email" placeholder="Enter Your Email">
-                                  </div>
-
-                                  <div class="apply_job_form">
-                                      <textarea class="form-control" name="message"
-                                          placeholder="Message"></textarea>
-                                  </div>
-                              </div> -->
                               <div class="question_sec float_left">
                                   <div class="about_btn calc_btn faqq_btn ques_Btn">
                                       <ul>
@@ -318,32 +302,20 @@
     </div>
   </div>
 
-
-
-
-  <!-- referrals wrapper end -->
-  <!--  transactions wrapper start -->
-  <div class="last_transaction_wrapper float_left">
-
+  <div *ngIf="client.role == 'MANAGERS'" class="last_transaction_wrapper float_left">
     <div class="row">
-
       <div class="col-md-12 col-lg-12 col-sm-12 col-12">
         <div class="sv_heading_wraper">
-
           <h3>REVIEWS</h3>
-
         </div>
       </div>
       <div class="crm_customer_table_main_wrapper float_left">
-
         <div class="table-responsive">
           <table class="myTable table datatables cs-table crm_customer_table_inner_Wrapper">
             <thead>
               <tr>
                 <th class="width_table1">username</th>
                 <th class="width_table1">message</th>
-                <!-- <th class="width_table1">options</th> -->
-
               </tr>
             </thead>
             <tbody>

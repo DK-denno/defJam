@@ -4,8 +4,6 @@
 
 export const environment = {
   production: false,
-  // REGISTRATION_URL : "https://jadi-earn.herokuapp.com/auth/clientSelfSignUp",
-  // LOGIN_URL : "https://jadi-earn.herokuapp.com/auth/clientLogin",
   USER_DETAILS : "http://localhost:8080/auth/getUserDetails",
   ACTIVATE_ACCOUNT : "",
   ACCOUNT_DETAILS: "",
@@ -21,6 +19,7 @@ export const environment = {
   GET_PATIENT_RECORD : "http://localhost:8080/doctors/getPatientRecord",
   ADD_REVIEW : "http://localhost:8080/doctors/addReviews",
   GET_REVIEW : "http://localhost:8080/doctors/getReviews",
+  GET_ROLES : "http://localhost:8080/admin/getRoles",
 };
 
 /*

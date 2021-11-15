@@ -12,7 +12,7 @@
             <div class="c-menu-item__title">Dashboard</div>
           </a>
         </li>
-        <li class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
+        <li *ngIf="user.role == 'DOCTOR' || user.role == 'MANAGERS'" class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
           <a href="#" data-toggle="modal" data-target="#createDoctor"> Create Doctor</a>
         </li>
         <br>
@@ -20,12 +20,16 @@
           <a href="#" data-toggle="modal" data-target="#myModal"> Book Appointment </a>
         </li>
         <br>
-        <li class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
+        <li *ngIf="user.role == 'DOCTOR' || user.role == 'MANAGERS'" class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
           <a href="#" data-toggle="modal" data-target="#initiatePayment"> Initiate payment </a>
         </li>
         <br>
         <li class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
           <a href="#" data-toggle="modal" data-target="#addReview"> Add review </a>
+        </li>
+        <br>
+        <li *ngIf="user.role == 'MANAGERS'" class="c-menu__item crm_navi_icon_cont" style="margin-left: 70px;">
+          <a href="#" data-toggle="modal" data-target="#addNewUser"> Add New User </a>
         </li>
       </ul>
     </nav>
@@ -178,5 +182,79 @@
       </div>
   </div>
 </div>
+
+
+
+<div class="modal fade question_modal" id="addNewUser" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div class="sv_question_pop float_left">
+                      <h1>Add new User </h1>
+                      <form [formGroup]="addNeUserForm" autocomplete="off">
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="text" class="form-control require" matInput formControlName="firstName" placeholder="FirstName*">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="text" class="form-control require" matInput formControlName="lastName" placeholder="LastName*">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                          <mat-label>Choose Role</mat-label> <br>
+                          <select class="form-group icon_form comments_form" matNativeControl required>
+                            <option *ngFor="let role of roles" [value]="role.name">
+                              {{ role.name }}
+                            </option>
+                          </select>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="email" class="form-control require" matInput formControlName="email" placeholder="Email*">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="text" class="form-control require" matInput formControlName="userName" placeholder="userName*">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="password" class="form-control require" matInput formControlName="password" placeholder="Password***">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="password" class="form-control require" matInput formControlName="validatePassword" placeholder="Confirm Password***">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="text" class="form-control require" matInput formControlName="telephone1" placeholder="Phone Number***">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-group icon_form comments_form register_contact">
+                          <input type="number" class="form-control require" matInput formControlName="addr" placeholder="Postal Address***">
+                        </mat-form-field>
+                      </form>
+
+                      <div class="question_sec float_left">
+                          <div class="about_btn calc_btn faqq_btn ques_Btn">
+                              <ul>
+                                  <li>
+                                      <a (click)="submitRegistrationData()">apply now</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="cancel_wrapper">
+                              <a href="#" class="" data-dismiss="modal">cancel</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 
 <ngx-loading [show]="loading"></ngx-loading>

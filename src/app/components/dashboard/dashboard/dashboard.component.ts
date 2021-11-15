@@ -6,7 +6,6 @@ import { AppEnums } from 'src/app/models/AppEnums';
 import { AppointmentOptions } from 'src/app/models/AppointmentOptions';
 import { IAppointments } from 'src/app/models/IAppointments';
 import { IReviews } from 'src/app/models/IReviews';
-import { ITransaction } from 'src/app/models/ITransaction';
 import { IUser } from 'src/app/models/iuser';
 import { AppService } from 'src/app/service/app-service.service';
 import { environment } from 'src/environments/environment';
@@ -25,13 +24,12 @@ export class DashboardComponent implements OnInit {
   initiatePaymentForm!: FormGroup;
   creatPatientRecordForm!: FormGroup;
   reviews!: IReviews [];
-
   options: AppointmentOptions[]= [
     { value: 'Consultation', viewValue: 'Consultation' },
     { value: 'Optical', viewValue: 'Optical' },
     { value: 'Dental', viewValue: 'Dental' },
   ];
-
+  client!:IUser;
   constructor(private router:Router, private service: AppService,
     private formBuilder: FormBuilder) {
       this.appointmentForm = formBuilder.group({
@@ -44,7 +42,9 @@ export class DashboardComponent implements OnInit {
 
       this.creatPatientRecordForm = formBuilder.group({
         message: new FormControl("", Validators.required),
-      })
+      });
+
+      this.client = this.service.getAuthUser();
     }
 
   ngOnInit(): void {
@@ -154,4 +154,5 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
 }

@@ -10,5 +10,6 @@ export interface IUser {
     telephone2: string,
     id: number,
     active: boolean,
-    numberOfRefferals: number
+    numberOfRefferals: number,
+    role:String
 }
